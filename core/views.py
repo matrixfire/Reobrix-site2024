@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .models import Slide
 
 def index(request):
     """The home page for reobrix."""
-    return render(request, 'core/index.html')
+    slides = Slide.objects.all()
+    return render(request, 'core/index.html', {"slides": slides})
 
 def about(request):
     return render(request, 'core/about.html')

@@ -4,6 +4,43 @@
 
 {% block content %}
 
+<!-- home slider-->
+<div class="swiper">
+  <div class="swiper-wrapper">
+      {% for slide in slides %}
+      <div class="swiper-slide bg-image min-vh-100 section-lg" style="background-image: url({{ slide.img.url }});">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-10 col-md-9 col-lg-7 col-xl-6">
+                      <h1>{{ slide.title }}</h1>
+                      <p>{{ slide.subtitle }}</p>
+                      <div class="group-20 offset-md d-flex align-items-center" data-lightgallery='{"selector":".btn-play"}'>
+                          <a class="btn btn-lg btn-primary" href="#">Learn More</a>
+                          <a class="btn btn-lg btn-play btn-secondary" href="#"><span class="btn-play-icon mdi mdi-play"></span></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+
+      <div class="swiper-pagination"></div>
+  </div>
+
+
+  <!-- If we need pagination -->
+  <div class="swiper-pagination"></div>
+
+  <!-- If we need navigation buttons -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- If we need scrollbar -->
+  <div class="swiper-scrollbar"></div>
+</div>
+
+
+
  <!-- Kids Are The Best Explorers In The World-->
  <div class="parallax-container section" data-parallax-img="{% static 'core/images/bg-01-1920x718.jpg' %}" data-preset='{"title":"Content block 2","category":"content, parallax","reload":true,"id":"content-block-2"}'>
     <div class="parallax-content section-85 section-lg-bottom-0 context-dark">
@@ -21,6 +58,8 @@
       </div>
     </div>
   </div>
+
+
   <!-- Welcome to Intense-->
   <section class="section novi-background section-98 section-md-124" data-preset='{"title":"Content block 1","category":"content","id":"content-block-1"}'>
     <div class="container">
@@ -228,6 +267,31 @@
     </ul>
   </section>
 
+
+<script>
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'vertical',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+</script>
 
 
   {% endblock content %}
