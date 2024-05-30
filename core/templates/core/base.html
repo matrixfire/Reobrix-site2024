@@ -87,6 +87,8 @@
                         </li>
                         <li><a href="{% url 'core:contacts' %}"><span>Contacts</span></a>
                         </li>
+                        <li><a href="{% url 'blog:post_list' %}"><span>Blog</span></a>
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -107,6 +109,9 @@
       </header>
       {% block content %}
       {% endblock content %}
+
+      <hr>
+
       <!-- Page Footer-->
       <!-- Default footer-->
       <footer class="section novi-background section-relative section-top-66 section-bottom-34 page-footer" data-preset='{"title":"Footer","category":"footer","reload":true,"id":"footer"}'>
