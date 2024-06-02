@@ -36,10 +36,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # my apps
-    'core',
-    'blog', # or 'blog.apps.BlogConfig',
-
     # default apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,6 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd party
+    'taggit',
+
+    # my apps
+    'core',
+    'blog', # or 'blog.apps.BlogConfig',
+    
 ]
 
 MIDDLEWARE = [
