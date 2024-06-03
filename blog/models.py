@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils import timezone
 from taggit.managers import TaggableManager
 
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return (
@@ -17,8 +18,10 @@ class Post(models.Model):
         PUBLISHED = 'PB', 'Published'
 
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250,
-                            unique_for_date='publish')
+    slug = models.SlugField(
+        max_length=250,
+        unique_for_date='publish'
+    )
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -36,7 +39,6 @@ class Post(models.Model):
 
     objects = models.Manager()  # The default manager.
     published = PublishedManager()  # Our custom manager.
-
     tags = TaggableManager()
 
     class Meta:
@@ -55,9 +57,9 @@ class Post(models.Model):
                 self.publish.year,
                 self.publish.month,
                 self.publish.day,
-                self.slug
+                self.slug,
             ],
-    )
+        )
 
 
 class Comment(models.Model):
@@ -72,10 +74,12 @@ class Comment(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
+
     class Meta:
         ordering = ['created']
         indexes = [
             models.Index(fields=['created']),
         ]
+
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'
