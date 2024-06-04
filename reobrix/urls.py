@@ -17,19 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
-from blog.sitemaps import PostSitemap
+from blog.sitemaps import PostSitemap, TagSitemap  # Import TagSitemap
 from django.conf import settings
 from django.conf.urls.static import static
 
 sitemaps = {
     'posts': PostSitemap,
+    'tags': TagSitemap,  # Add TagSitemap
 }
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
     path('blog/', include('blog.urls', namespace='blog')),
+    path('shop/', include('shop.urls', namespace='shop')),
     path('', include('core.urls', namespace='core')),
     path(
         'sitemap.xml',
@@ -38,7 +38,6 @@ urlpatterns = [
         name='django.contrib.sitemaps.views.sitemap'
     ),
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
