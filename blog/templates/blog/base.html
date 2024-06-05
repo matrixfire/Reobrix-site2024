@@ -2,11 +2,15 @@
 
 {% load blog_tags %}
 {% load static %}
+
+{% block title %}{% endblock %}
+
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{% block title %}{% endblock %}</title>
-  <link href="{% static "css/blog.css" %}" rel="stylesheet">
+  <title></title>
+  <link href="{% static "blog/css/blog.css" %}" rel="stylesheet">
 </head>
 <body>
   <div id="content">
