@@ -32,6 +32,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+
+CART_SESSION_ID = 'cart'
+
+
+
+
 SITE_ID = 1
 # Application definition
 
@@ -54,6 +61,8 @@ INSTALLED_APPS = [
     'core',
     'blog', # or 'blog.apps.BlogConfig',
     'shop',
+    'cart',
+    'orders',
     
 ]
 
@@ -80,6 +89,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
