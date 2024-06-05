@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" class="wow-animation">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}My Website{% endblock %}</title>
+<html class="wow-animation" lang="en">
+  <head>
+    <title>{% block title %}Home{% endblock %}</title>
     {% load static %}
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
@@ -11,18 +10,21 @@
     <meta name="keywords" content="intense web design multipurpose template">
     <meta name="date" content="Dec 26">
     <link rel="icon" href="{% static 'core/images/favicon.ico' %}" type="image/x-icon">
-    <!-- <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans:400,700%7CAmatic+SC:400,700"> -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans:400,700%7CAmatic+SC:400,700">
     <link rel="stylesheet" href="{% static 'core/css/style2.css' %}">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />        
-    {% block extra_css %}{% endblock %}
-</head>
-<body>
-  <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
-  <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="{% static 'core/images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
-  <div class="page text-center">
-    <header class="section page-head" data-preset='{"title":"Header","category":"header","reload":true,"id":"header"}'>
-        {% block header %}
+
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+
+  </head>
+  <body>
+    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="{% static 'core/images/ie8-panel/warning_bar_0000_us.jpg' %}" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="page text-center">
+      <!-- Page Head-->
+      <header class="section page-head" data-preset='{"title":"Header","category":"header","reload":true,"id":"header"}'>
         <!-- RD Navbar Transparent-->
         <div class="rd-navbar-wrap">
           <nav class="rd-navbar rd-navbar-top-panel novi-background rd-navbar-light" data-lg-stick-up-offset="79px" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-lg-auto-height="true" data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-stick-up="true">
@@ -104,18 +106,15 @@
             </div>
           </nav>
         </div>
+      </header>
+      {% block content %}
+      {% endblock content %}
 
-        {% endblock %}
+      <hr>
 
-
-    </header>
-
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-
-    <footer class="section novi-background section-relative section-top-66 section-bottom-34 page-footer" data-preset='{"title":"Footer","category":"footer","reload":true,"id":"footer"}'>
-        {% block footer %}
+      <!-- Page Footer-->
+      <!-- Default footer-->
+      <footer class="section novi-background section-relative section-top-66 section-bottom-34 page-footer" data-preset='{"title":"Footer","category":"footer","reload":true,"id":"footer"}'>
         <div class="container">
           <div class="row justify-content-center grid-group-md text-lg-left">
             <div class="col-lg-3">
@@ -170,14 +169,9 @@
         </div>
         <div class="container offset-top-50">
           <p class="small text-darker">Intense Child Care &copy; <span id="copyright-year"></span>. <a href="#">Privacy Policy</a></p>
-        </div>    
-        {% endblock %}
-    </footer>
-
-    </div>
-    <!-- <a class="builder-button" href="#" target="_blank"> -->
-      
-    <!-- <img src="{% static 'core/images/novi-icon-26x26.png' %}" width="26" height="26" alt=""><span>Try builder</span></a> -->
+        </div>
+      </footer>
+    <!-- </div><a class="builder-button" href="https://ld-wp2.template-help.com/novi-builder/intense-child-care/" target="_blank"><img src="{% static 'core/images/novi-icon-26x26.png' %}" width="26" height="26" alt=""><span>Try builder</span></a> -->
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
     <!-- Java script -->
@@ -205,6 +199,6 @@
     </script>
 
 
-    {% block extra_js %}{% endblock %}
-</body>
+
+  </body>
 </html>
